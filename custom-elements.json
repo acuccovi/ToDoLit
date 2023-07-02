@@ -1,0 +1,745 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "main.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "login-page",
+          "declaration": {
+            "name": "LoginPage",
+            "module": "/src/pages/login.page.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "main-page",
+          "declaration": {
+            "name": "MainPage",
+            "module": "/src/pages/main.page.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "not-found-page",
+          "declaration": {
+            "name": "NotFoundPage",
+            "module": "/src/pages/not-found.page.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "todo-app-login",
+          "declaration": {
+            "name": "ToDoAppLogin",
+            "module": "/src/components/login/todo-app-login.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "todo-lit",
+          "declaration": {
+            "name": "ToDoLit",
+            "module": "/src/components/todo/todo-lit.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "todo-input",
+          "declaration": {
+            "name": "ToDoInput",
+            "module": "/src/components/todo/todo-input.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "todo-item",
+          "declaration": {
+            "name": "ToDoItem",
+            "module": "/src/components/todo/todo-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/controllers/firebase.controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "FirebaseController",
+          "members": [
+            {
+              "kind": "method",
+              "name": "registerUser",
+              "parameters": [
+                {
+                  "name": "email"
+                },
+                {
+                  "name": "password"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "loginUser",
+              "parameters": [
+                {
+                  "name": "email"
+                },
+                {
+                  "name": "password"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "pushList",
+              "parameters": [
+                {
+                  "name": "userId"
+                },
+                {
+                  "name": "list"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "readList",
+              "parameters": [
+                {
+                  "name": "userId"
+                },
+                {
+                  "name": "callback"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "host",
+              "default": "host"
+            },
+            {
+              "kind": "field",
+              "name": "firebase"
+            },
+            {
+              "kind": "field",
+              "name": "auth"
+            },
+            {
+              "kind": "field",
+              "name": "db"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "FirebaseController",
+          "declaration": {
+            "name": "FirebaseController",
+            "module": "src/controllers/firebase.controller.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/controllers/router-controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RouterController",
+          "members": [
+            {
+              "kind": "field",
+              "name": "router",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{}"
+            },
+            {
+              "kind": "method",
+              "name": "makeRouter",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "goToLoginPage",
+              "static": true
+            },
+            {
+              "kind": "method",
+              "name": "goToToDoPage",
+              "static": true
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RouterController",
+          "declaration": {
+            "name": "RouterController",
+            "module": "src/controllers/router-controller.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/controllers/todo-list-controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "TodoListController",
+          "members": [
+            {
+              "kind": "method",
+              "name": "getList",
+              "parameters": [
+                {
+                  "name": "userId"
+                },
+                {
+                  "name": "callback"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "saveList",
+              "parameters": [
+                {
+                  "name": "userId"
+                },
+                {
+                  "name": "list"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "host",
+              "default": "host"
+            },
+            {
+              "kind": "field",
+              "name": "firebaseController",
+              "default": "new FirebaseController(host)"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TodoListController",
+          "declaration": {
+            "name": "TodoListController",
+            "module": "src/controllers/todo-list-controller.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/controllers/user-controller.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UserController",
+          "members": [
+            {
+              "kind": "field",
+              "name": "USER_ITEM",
+              "type": {
+                "text": "string"
+              },
+              "default": "'user'"
+            },
+            {
+              "kind": "method",
+              "name": "isAuthenticated"
+            },
+            {
+              "kind": "method",
+              "name": "login",
+              "parameters": [
+                {
+                  "name": "user"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "logout"
+            },
+            {
+              "kind": "field",
+              "name": "host",
+              "default": "host"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UserController",
+          "declaration": {
+            "name": "UserController",
+            "module": "src/controllers/user-controller.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/pages/login.page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "LoginPage",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_loginUser",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "userController",
+              "default": "new UserController(this)"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "login-page",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "LoginPage",
+            "module": "src/pages/login.page.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/pages/main.page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MainPage",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_logoutUser"
+            },
+            {
+              "kind": "field",
+              "name": "userController",
+              "default": "new UserController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "user",
+              "privacy": "public",
+              "attribute": "user"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "user",
+              "fieldName": "user"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "main-page",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "MainPage",
+            "module": "src/pages/main.page.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/pages/not-found.page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "NotFoundPage",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "not-found-page",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "NotFoundPage",
+            "module": "src/pages/not-found.page.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/login/todo-app-login.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ToDoAppLogin",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_onSubmit",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_registerUser",
+              "parameters": [
+                {
+                  "name": "email"
+                },
+                {
+                  "name": "password"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_loginUser",
+              "parameters": [
+                {
+                  "name": "email"
+                },
+                {
+                  "name": "password"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "firebaseController",
+              "default": "new FirebaseController(this)"
+            }
+          ],
+          "events": [
+            {
+              "name": "user_registerd",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "user_logged",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "todo-app-login",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ToDoAppLogin",
+            "module": "src/components/login/todo-app-login.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/todo/todo-input.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ToDoInput",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_onSubmit",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "add_item",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "todo-input",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ToDoInput",
+            "module": "src/components/todo/todo-input.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/todo/todo-item.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ToDoItem",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_onRemove"
+            },
+            {
+              "kind": "method",
+              "name": "_onToggle"
+            },
+            {
+              "kind": "field",
+              "name": "userId",
+              "privacy": "public",
+              "attribute": "userId"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "privacy": "public",
+              "attribute": "text"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "attribute": "checked"
+            },
+            {
+              "kind": "field",
+              "name": "index",
+              "privacy": "public",
+              "attribute": "index"
+            }
+          ],
+          "events": [
+            {
+              "name": "remove_item",
+              "type": {
+                "text": "CustomEvent"
+              }
+            },
+            {
+              "name": "toggle_completion",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "userId",
+              "fieldName": "userId"
+            },
+            {
+              "name": "text",
+              "fieldName": "text"
+            },
+            {
+              "name": "checked",
+              "fieldName": "checked"
+            },
+            {
+              "name": "index",
+              "fieldName": "index"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "todo-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ToDoItem",
+            "module": "src/components/todo/todo-item.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/todo/todo-lit.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ToDoLit",
+          "members": [
+            {
+              "kind": "method",
+              "name": "_addItem",
+              "parameters": [
+                {
+                  "name": "e"
+                },
+                {
+                  "name": "text"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_removeItem",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_toggleCompletion",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "toDoListController",
+              "default": "new TodoListController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "list",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]",
+              "privacy": "public",
+              "attribute": "list"
+            },
+            {
+              "kind": "field",
+              "name": "user",
+              "privacy": "public",
+              "attribute": "user"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "list",
+              "fieldName": "list"
+            },
+            {
+              "name": "user",
+              "fieldName": "user"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "todo-lit",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ToDoLit",
+            "module": "src/components/todo/todo-lit.js"
+          }
+        }
+      ]
+    }
+  ]
+}
